@@ -10,7 +10,7 @@ const INITIAL_STATE = {
     currentColour: '',
     previousColours: []
 };
-const SERIALISED_STATE = JSON.parse(sessionStorage.getItem(storeKey));
+const  RELOADED_STATE = JSON.parse(sessionStorage.getItem(storeKey));
 
 export const setCurrentColour = (state, action) => {
     const { colour } = action;
@@ -47,5 +47,5 @@ const handlers = {
     [UNDO_SET_CURRENT_COLOUR]: undoSetCurrentColour
 };
 
-const coloursReducer = createSerialisedReducer(SERIALISED_STATE || INITIAL_STATE, handlers, storeKey);
+const coloursReducer = createSerialisedReducer(RELOADED_STATE || INITIAL_STATE, handlers, storeKey);
 export default coloursReducer;
