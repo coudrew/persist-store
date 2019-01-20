@@ -5,7 +5,8 @@ import { setCurrentColour, clearCurrentColour, undoSetCurrentColour } from '../a
 
 const mapStateToProps = state => {
     return {
-        currentColour: state.colours.currentColour
+        currentColour: state.colours.currentColour,
+        previousColours: state.colours.previousColours
     };
 };
 

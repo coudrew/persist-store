@@ -37,7 +37,7 @@ export const undoSetCurrentColour = (state, action) => {
     return {
         ...state,
         currentColour: lastColour,
-        previousColours
+        previousColours: [ ...previousColours ]
     };
 };
 
