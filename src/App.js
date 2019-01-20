@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { SERIALISE_STATE } from './reducers/createReducer';
+import rootReducer from './reducers';
 import logo from './logo.svg';
+import Colours from './containers/Colours';
 import './App.css';
 
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+
 class App extends Component {
+  componentDidMount() {
+    window.addEventListener('unload', this.serialiseStore);
+  }
+
+  serialiseStore = () => {
+    store.dispatch({ type: SERIALISE_STATE });
+    window.removeEventListener('unload', this.serialiseStore);
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <Colours />
+      </Provider>
     );
   }
 }
