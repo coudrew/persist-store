@@ -47,5 +47,5 @@ const handlers = {
     [UNDO_SET_CURRENT_COLOUR]: undoSetCurrentColour
 };
 
-const coloursReducer = createSerialisedReducer(SERIALISED_STATE || INITIAL_STATE, handlers, 'colours');
+const coloursReducer = createSerialisedReducer(SERIALISED_STATE || INITIAL_STATE, handlers, storeKey);
 export default coloursReducer;
