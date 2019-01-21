@@ -30,3 +30,14 @@
     transform: rotate(360deg);
   }
 }
+
+.colours {
+  color: azure;
+  border: solid 1px black;
+  width: 25vw;
+  background-color: #282c34;
+  button {
+    background-color: #393d45;
+    display: inline;
+  }
+}

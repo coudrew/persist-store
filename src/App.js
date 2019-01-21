@@ -5,7 +5,7 @@ import { SERIALISE_STATE } from './reducers/createReducer';
 import rootReducer from './reducers';
 import logo from './logo.svg';
 import Colours from './containers/Colours';
-import './App.css';
+import './App.scss';
 
 const store = createStore(
   rootReducer,
@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Colours />
+        <Colours theme={'colours'}/>
       </Provider>
     );
   }
